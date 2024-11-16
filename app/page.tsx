@@ -154,11 +154,21 @@ export default function JsonDiffPage() {
     })
   }
 
+  const handleLanguageChange = () => {
+    setLang(prev => prev === 'zh' ? 'en' : 'zh')
+    setJsonInput('')
+    setDiffItems([])
+    setAvailableFields([])
+    setBaseField('')
+    setCompareFields([{ id: 1, field: '' }])
+    setIsJsonValid(false)
+  }
+
   return (
     <div className="p-4 max-w-4xl mx-auto">
       <div className="fixed top-4 right-4">
         <button
-          onClick={() => setLang(lang === 'zh' ? 'en' : 'zh')}
+          onClick={handleLanguageChange}
           className="px-3 py-1.5 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 flex items-center gap-2"
         >
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
